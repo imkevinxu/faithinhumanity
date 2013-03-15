@@ -3,27 +3,13 @@
 import sys
 import tweepy
 import webbrowser
-import time
+import datetime
 import os
-from threading import Lock, Thread
 
-# Thread cleaning function
+from faithinhumanity_app.models import Tweet
 
 goodStatuses = []
 badStatuses = []
-
-# def bufferClean():
-#     while(True):
-#         print "cleaning buffer"
-#         lock.acquire()
-#         for status in statusBuffer:
-
-#             print status.text
-#             print status.source
-#             print status.created_at
-#         del statusBuffer[:]
-#         lock.release()
-#         time.sleep(60)
 
 # Query terms
 
@@ -31,10 +17,6 @@ Q = ['faith in humanity', 'faithinhumanity']
 
 positiveWords = ['restored', 'restoring', 'restore', 'returns']
 negativeWords = ['lose', 'loseing', 'lost', 'losing', 'no']
-
-# Buffer of statuses and thread lock
-
-#lock = Lock()
 
 # Get these values from your application settings.
 
@@ -71,10 +53,17 @@ class CustomStreamListener(tweepy.StreamListener):
 
         try:
             if any(word in status.text for word in positiveWords):
-                goodStatuses.append(status)
+                tweet = Tweet()
+                tweet.tweet_id_string = status.id_str
+                tweet.original_tweet_creation = datetime.datetime.now()
+                tweet.is_good = True
+                tweet.save()
                 print "postive"
             elif any(word in status.text for word in negativeWords):
-                badStatuses.append(status)
+                tweet = Tweet()
+                tweet.tweet_id_string = status.id_str
+                tweet.original_tweet_creation = datetime.datetime.now()
+                tweet.is_good = False
                 print "negative"
 
         except Exception, e:
