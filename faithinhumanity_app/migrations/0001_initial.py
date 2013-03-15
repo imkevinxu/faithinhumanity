@@ -13,9 +13,8 @@ class Migration(SchemaMigration):
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('created_at', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
             ('modified_at', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, auto_now_add=True, blank=True)),
-            ('tweet_id_string', self.gf('django.db.models.fields.CharField')(unique=True, max_length=255)),
-            ('original_tweet_creation', self.gf('django.db.models.fields.DateTimeField')()),
-            ('is_good', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('id_str', self.gf('django.db.models.fields.CharField')(unique=True, max_length=255)),
+            ('is_good', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
         ))
         db.send_create_signal('faithinhumanity_app', ['Tweet'])
 
@@ -30,10 +29,9 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'Tweet'},
             'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'is_good': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'modified_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'auto_now_add': 'True', 'blank': 'True'}),
-            'original_tweet_creation': ('django.db.models.fields.DateTimeField', [], {}),
-            'tweet_id_string': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '255'})
+            'id_str': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '255'}),
+            'is_good': ('django.db.models.fields.NullBooleanField', [], {'null': 'True', 'blank': 'True'}),
+            'modified_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'auto_now_add': 'True', 'blank': 'True'})
         }
     }
 

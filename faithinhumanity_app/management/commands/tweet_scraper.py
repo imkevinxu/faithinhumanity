@@ -25,14 +25,13 @@ auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 class CustomStreamListener(tweepy.StreamListener):
 
     def __init__(self, api=None):
-        self.api = api or API()
+        self.api = api or tweepy.API()
         print 'Tweet Scraper Initializing'
 
     def on_status(self, status):
         try:
             tweet = Tweet() #TODO: Incorporate more fields
-            tweet.tweet_id_string = status.id_str
-            tweet.original_tweet_creation = datetime.datetime.now() #TODO: Fix naive datetime
+            tweet.id_str = status.id_str
             if any(word in status.text.lower() for word in positives):
                 tweet.is_good = True
                 tweet.save()
