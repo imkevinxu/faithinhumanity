@@ -41,6 +41,7 @@ html, body {
 
 #thermometer {
     position: relative;
+    height: 70px;
 }
 
 #thermometer #good {

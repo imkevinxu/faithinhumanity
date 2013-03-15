@@ -16,6 +16,8 @@ from faithinhumanity_app.models import *
 from faithinhumanity_app.model_forms import *
 from faithinhumanity_app.forms import *
 
-#@login_required
 def index(request):
+    tweets = Tweet.objects.all()
+    good_tweets = tweets.filter(is_good=True)
+    bad_tweets = tweets.filter(is_good=False)
     return render(request, "index.html", locals())
