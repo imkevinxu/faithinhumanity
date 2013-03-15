@@ -30,12 +30,9 @@
     <!-- <link rel="stylesheet" href="{{ MEDIA_URL }}css/foundation.css"> -->
 
     <!-- Included CSS Files -->
-    <link rel="stylesheet" href="{{ MEDIA_URL }}css/foundation.min.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/bootstrap.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/flat-ui.css" />
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/app.css" />
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="{{ MEDIA_URL }}css/foundation.icons.css">
-    <!-- <link rel="stylesheet" href="{{ MEDIA_URL }}css/responsive-tables.css"> -->
 
     <!--[if lt IE 9]>
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/ie.css">
@@ -64,22 +61,13 @@
 
     {# Content #}
     <div class="row">
-        <div class="twelve columns">
+        <div class="span12">
 
             <header class="row">
-                <div class="twelve columns">
+                <div class="span12">
                     <a href="{% url index %}" id="headerlogo">
                         <h1>Faithinhumanity</h1>
                     </a>
-
-                    <div id="right_nav">
-                        {% if request.user.is_authenticated() %}
-                            <a href="{% url logout %}" class="small secondary button"><i class="foundicon-lock"></i>Logout</a>
-                        {% else %}
-                            <a href="{% url login %}" class="small secondary button"><i class="accessibility foundicon-key"></i>Log In</a>
-                        {% endif %}
-                    </div>
-                    <hr/>
 
                 </div>
             </header>
@@ -94,8 +82,8 @@
             <!-- End Block -->
 
             <footer class="row">
-                <div class="twelve columns">
-                    &copy; Faithinhumanity
+                <div class="span12">
+                    &copy; The Faith In Humanity
                 </div>
             </footer>
 
@@ -108,12 +96,19 @@
     <script>window.jQuery || document.write('<script src="{{ MEDIA_URL }}js/jquery.1.8.2.min.js"><\/script>')</script> -->
 
     <!-- Included JS Files -->
-    <script src="{{ MEDIA_URL }}js/foundation.min.js"></script>
-    <script src="{{ MEDIA_URL }}js/app.js"></script>
-
-    <!-- Additional JS Files -->
-    <!-- <script src="{{ MEDIA_URL }}js/jquery.responsive-tables.js"></script>
-    <script src="{{ MEDIA_URL }}js/jquery.textchange.min.js"></script> -->
+    <script src="{{ MEDIA_URL }}js/jquery-1.8.2.min.js"></script>
+    <script src="{{ MEDIA_URL }}js/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="{{ MEDIA_URL }}js/jquery.dropkick-1.0.0.js"></script>
+    <script src="{{ MEDIA_URL }}js/custom_checkbox_and_radio.js"></script>
+    <script src="{{ MEDIA_URL }}js/custom_radio.js"></script>
+    <script src="{{ MEDIA_URL }}js/jquery.tagsinput.js"></script>
+    <script src="{{ MEDIA_URL }}js/bootstrap-tooltip.js"></script>
+    <script src="{{ MEDIA_URL }}js/jquery.placeholder.js"></script>
+    <script src="{{ MEDIA_URL }}js/application.js"></script>
+    <!--[if lt IE 8]>
+      <script src="js/icon-font-ie7.js"></script>
+      <script src="js/icon-font-ie7-24.js"></script>
+    <![endif]-->
 
     {% block javascript %}{% endblock %}
 
