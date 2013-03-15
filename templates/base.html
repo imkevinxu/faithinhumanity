@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <title>{% block title %}Faithinhumanity{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}{% endblock %}" />
+    {# TODO: <link rel="icon" type="image/x-icon" href="{{ MEDIA_URL }}images/favicon.png" /> #}
+
+    <!-- Apple Meta Data -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;" />
+    {# TODO: <link rel="apple-touch-icon-precomposed" href="{{ MEDIA_URL }}images/apple-touch-icon.png" /> #}
+
+    <!-- Facebook Meta Data -->
+    <!-- <meta property="og:url" content="http://example.com/" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="http://example.com{{ MEDIA_URL }}images/logo.png" />
+    <meta property="og:type" content="website" /> -->
+
+    <!-- Included CSS Files (Uncompressed) -->
+    <!-- <link rel="stylesheet" href="{{ MEDIA_URL }}css/foundation.css"> -->
+
+    <!-- Included CSS Files -->
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/foundation.min.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/app.css" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/foundation.icons.css">
+    <!-- <link rel="stylesheet" href="{{ MEDIA_URL }}css/responsive-tables.css"> -->
+
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/ie.css">
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/foundation.icons-ie7.css">
+    <![endif]-->
+    <!--[if gte IE 9]>
+        <style type="text/css">
+            .gradient {
+                filter: none;
+            }
+        </style>
+    <![endif]-->
+
+    {% block extra_head %}{% endblock %}
+
+    <script src="{{ MEDIA_URL }}js/modernizr.js"></script>
+
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="body">
+
+    {# Content #}
+    <div class="row">
+        <div class="twelve columns">
+
+            <header class="row">
+                <div class="twelve columns">
+                    <a href="{% url index %}" id="headerlogo">
+                        <h1>Faithinhumanity</h1>
+                    </a>
+
+                    <div id="right_nav">
+                        {% if request.user.is_authenticated() %}
+                            <a href="{% url logout %}" class="small secondary button"><i class="foundicon-lock"></i>Logout</a>
+                        {% else %}
+                            <a href="{% url login %}" class="small secondary button"><i class="accessibility foundicon-key"></i>Log In</a>
+                        {% endif %}
+                    </div>
+                    <hr/>
+
+                </div>
+            </header>
+
+            <!-- PROMPT IE 6 USERS TO INSTALL CHROME FRAME. REMOVE THIS IF YOU SUPPORT IE 6.
+            chromium.org/developers/how-tos/chrome-frame-getting-started -->
+            <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+            <!-- <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script> -->
+
+            <!-- Main Content -->
+            {% block content %}{% endblock %}
+            <!-- End Block -->
+
+            <footer class="row">
+                <div class="twelve columns">
+                    &copy; Faithinhumanity
+                </div>
+            </footer>
+
+        </div>
+    </div>
+    {# End Content #}
+
+    <!-- jQuery 1.8.2 -->
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{ MEDIA_URL }}js/jquery.1.8.2.min.js"><\/script>')</script> -->
+
+    <!-- Included JS Files -->
+    <script src="{{ MEDIA_URL }}js/foundation.min.js"></script>
+    <script src="{{ MEDIA_URL }}js/app.js"></script>
+
+    <!-- Additional JS Files -->
+    <!-- <script src="{{ MEDIA_URL }}js/jquery.responsive-tables.js"></script>
+    <script src="{{ MEDIA_URL }}js/jquery.textchange.min.js"></script> -->
+
+    {% block javascript %}{% endblock %}
+
+    <!-- <script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script> -->
+
+</body>
+</html>
+
