@@ -4,4 +4,5 @@ Jinja2==2.6
 South==0.7.5
 django-debug-toolbar==0.9.4
 py-bcrypt==0.2
+tweepy==2.0
 wsgiref==0.1.2
