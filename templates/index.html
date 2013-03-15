@@ -6,10 +6,45 @@
 
 {% block content %}
 
-<div id="main" class="row">
-    <div class="span12">
+<div class="container">
 
+    <div class="row" id="labels">
+        <div class="span3" id="good">
+            <h1>50</h1>
+        </div>
+
+        <div class="span6" id="title">
+            <h1>THE FAITH IN HUMANITY</h1>
+        </div>
+
+        <div class="span3" id="bad">
+            <h1>50</h1>
+        </div>
     </div>
+
+    <div class="row">
+        <div class="span12" id="thermometer">
+            <div id="good"></div>
+            <div id="bad"></div>
+            <div id="cursor"></div>
+        </div>
+    </div>
+
+    <div id="row">
+        <div class="span6">
+
+        </div>
+        <div class="span6">
+
+        </div>
+    </div>
+
+
+{#     <footer class="row">
+        <div class="span12">
+            &copy; The Faith In Humanity
+        </div>
+    </footer> #}
 </div>
 
 {% endblock %}

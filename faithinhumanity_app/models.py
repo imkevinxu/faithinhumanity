@@ -13,8 +13,10 @@ class Base(models.Model):
     class Meta:
         abstract = True
 
-# class Data(Base):
-#     data = models.CharField(blank=True, null=True, max_length=255)
+class Tweet(Base):
+    tweet_id_string         = models.CharField(unique=True, max_length=255)
+    is_good                 = models.BooleanField()
+    original_tweet_creation = models.DateTimeField()
 
-#     def __unicode__(self):
-#         return u'%s' % (self.data)
+    def __unicode__(self):
+        return u'Tweet ID: %s [%s]' % (self.tweet_id_string, "GOOD" if self.is_good else "BAD")

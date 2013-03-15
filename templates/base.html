@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-    <title>{% block title %}Faithinhumanity{% endblock %}</title>
+    <title>{% block title %}The Faith In Humanity{% endblock %}</title>
     <meta name="description" content="{% block meta_description %}{% endblock %}" />
     {# TODO: <link rel="icon" type="image/x-icon" href="{{ MEDIA_URL }}images/favicon.png" /> #}
 
@@ -59,37 +59,16 @@
 
 <body class="body">
 
-    {# Content #}
-    <div class="row">
-        <div class="span12">
+    <!-- PROMPT IE 6 USERS TO INSTALL CHROME FRAME. REMOVE THIS IF YOU SUPPORT IE 6.
+    chromium.org/developers/how-tos/chrome-frame-getting-started -->
+    <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script> -->
 
-            <header class="row">
-                <div class="span12">
-                    <a href="{% url index %}" id="headerlogo">
-                        <h1>Faithinhumanity</h1>
-                    </a>
+    <!-- Main Content -->
 
-                </div>
-            </header>
+    {% block content %}{% endblock %}
 
-            <!-- PROMPT IE 6 USERS TO INSTALL CHROME FRAME. REMOVE THIS IF YOU SUPPORT IE 6.
-            chromium.org/developers/how-tos/chrome-frame-getting-started -->
-            <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-            <!-- <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script> -->
-
-            <!-- Main Content -->
-            {% block content %}{% endblock %}
-            <!-- End Block -->
-
-            <footer class="row">
-                <div class="span12">
-                    &copy; The Faith In Humanity
-                </div>
-            </footer>
-
-        </div>
-    </div>
-    {# End Content #}
+    <!-- End Block -->
 
     <!-- jQuery 1.8.2 -->
     <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -105,6 +84,7 @@
     <script src="{{ MEDIA_URL }}js/bootstrap-tooltip.js"></script>
     <script src="{{ MEDIA_URL }}js/jquery.placeholder.js"></script>
     <script src="{{ MEDIA_URL }}js/application.js"></script>
+
     <!--[if lt IE 8]>
       <script src="js/icon-font-ie7.js"></script>
       <script src="js/icon-font-ie7-24.js"></script>

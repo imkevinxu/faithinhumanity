@@ -18,4 +18,6 @@ from faithinhumanity_app.forms import *
 
 #@login_required
 def index(request):
+    # tweet = Tweet(tweet_id_string="231531", original_tweet_creation=datetime.datetime.now(), is_good=True)
+    # tweet.save()
     return render(request, "index.html", locals())
