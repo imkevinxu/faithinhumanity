@@ -6,6 +6,7 @@ Auto-generated from [Kevin Xu](https://github.com/imkevinxu)'s [Django Project B
 ### Development Team
 
 * Kevin Xu <kevin@imkevinxu.com>
+* Josh Belanich <jbelanich@gmail.com>
 
 ## Getting Started
 
