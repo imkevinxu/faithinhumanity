@@ -15,8 +15,8 @@ class Base(models.Model):
 
 class Tweet(Base):
     tweet_id_string         = models.CharField(unique=True, max_length=255)
-    is_good                 = models.BooleanField()
+    is_good                 = models.NullBooleanField(blank=True, null=True)
     original_tweet_creation = models.DateTimeField()
 
     def __unicode__(self):
-        return u'Tweet ID: %s [%s]' % (self.tweet_id_string, "GOOD" if self.is_good else "BAD")
+        return u'Tweet ID: %s [%s]' % (self.tweet_id_string, "GOOD" if self.is_good else "BAD" if not self.is_good else "UNSURE")
