@@ -12,12 +12,11 @@ ACCESS_TOKEN        = os.environ.get('TWITTER_FAITH_ACCESS_TOKEN')
 ACCESS_TOKEN_SECRET = os.environ.get('TWITTER_FAITH_ACCESS_TOKEN_SECRET')
 
 # Query terms
-# TODO: find typos in query
-# TODO: find more positives and negatives
-query    = ['faith in humanity', 'faithinhumanity']
+query     = ['faith in humanity', 'faithinhumanity']
 positives = ['restore', 'restores', 'restored', 'restoring', 'gain', 'gains', 'gained', 'gaining', \
              'return', 'returns', 'returned', 'returning', 'alive', 'back', 'gives', 'reaffirm']
-negatives = ['lose', 'loses', 'lost', 'losing', 'loseing', 'no', 'little', 'destroyed', 'destroys', 'destroying', 'goodbye']
+negatives = ['lose', 'loses', 'lost', 'losing', 'loseing', 'destroy', 'destroys', 'destroyed', 'destroying', \
+             'no', 'little', 'goodbye']
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
@@ -32,15 +31,15 @@ class CustomStreamListener(tweepy.StreamListener):
         tweet = Tweet()
         tweet.id_str = status.id_str
         tweet.text = status.text
-        tweet.user_name = status.user.name
-        tweet.user_profile_image_url = status.user.profile_image_url
-        tweet.screen_name = status.user.screen_name
+        tweet.username = status.user.name
+        tweet.screenname = status.user.screen_name
+        tweet.profile_image_url = status.user.profile_image_url
         return tweet
 
     def on_status(self, status):
         try:
             tweet = self.tweet_from_status(status)
-            
+
             if any(word in status.text.lower() for word in positives):
                 tweet.is_good = True
                 tweet.save()
@@ -50,8 +49,7 @@ class CustomStreamListener(tweepy.StreamListener):
                 tweet.save()
                 print '[Saved] %s' % tweet
             else:
-                #TODO: Do something with unsure tweets
-                print '[Not Saved] %s' % tweet
+                print '[NOT SAVED] %s' % tweet
 
         except Exception, e:
             print >> sys.stderr, 'Encountered Exception: ', e

@@ -19,11 +19,14 @@ from faithinhumanity_app.forms import *
 import datetime
 
 def index(request):
-    tweets = Tweet.objects.filter(created_at__range=[datetime.datetime.now()  + datetime.timedelta(days=-1), datetime.datetime.now()])
-    good_tweets = tweets.filter(is_good=True)
-    bad_tweets = tweets.filter(is_good=False)
+    current_time = datetime.datetime.now()
+    one_day_ago = current_time + datetime.timedelta(days=-1)
 
-    good_score = round((float(len(good_tweets))/len(tweets)) * 100)
+    tweets = Tweet.objects.filter(created_at__range=[one_day_ago, current_time])
+    good_tweets = tweets.filter(is_good=True)
+    bad_tweets  = tweets.filter(is_good=False)
+
+    good_score = round((float(len(good_tweets)) / len(tweets)) * 100)
     bad_score = 100 - good_score
 
     return render(request, "index.html", locals())
