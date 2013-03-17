@@ -16,6 +16,10 @@ class Base(models.Model):
 class Tweet(Base):
     id_str  = models.CharField(unique=True, max_length=255)
     is_good = models.NullBooleanField(blank=True, null=True)
-
+    text = models.CharField(max_length=255)
+    user_name = models.CharField(max_length=255)
+    user_profile_image_url = models.URLField(max_length=255)
+    screen_name = models.CharField(max_length=255)
+    
     def __unicode__(self):
         return u'Tweet ID: %s [%s]' % (self.id_str, "GOOD" if self.is_good else "BAD" if self.is_good is False else "UNSURE")

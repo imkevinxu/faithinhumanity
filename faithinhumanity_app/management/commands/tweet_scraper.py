@@ -17,7 +17,7 @@ ACCESS_TOKEN_SECRET = os.environ.get('TWITTER_FAITH_ACCESS_TOKEN_SECRET')
 query    = ['faith in humanity', 'faithinhumanity']
 positives = ['restore', 'restores', 'restored', 'restoring', 'gain', 'gains', 'gained', 'gaining', \
              'return', 'returns', 'returned', 'returning', 'alive']
-negatives = ['lose', 'loses', 'lost', 'losing', 'loseing', 'no']
+negatives = ['lose', 'loses', 'lost', 'losing', 'loseing', 'no', 'little', 'destroyed', 'destroys', 'destroying', 'goodbye']
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
@@ -28,10 +28,19 @@ class CustomStreamListener(tweepy.StreamListener):
         self.api = api or tweepy.API()
         print 'Tweet Scraper Initializing'
 
+    def tweet_from_status(self, status):
+        tweet = Tweet()
+        tweet.id_str = status.id_str
+        tweet.text = status.text
+        tweet.user_name = status.user.name
+        tweet.user_profile_image_url = status.user.profile_image_url
+        tweet.screen_name = status.user.screen_name
+        return tweet
+
     def on_status(self, status):
         try:
-            tweet = Tweet() #TODO: Incorporate more fields
-            tweet.id_str = status.id_str
+            tweet = self.tweet_from_status(status)
+            
             if any(word in status.text.lower() for word in positives):
                 tweet.is_good = True
                 tweet.save()
