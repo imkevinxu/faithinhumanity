@@ -121,6 +121,8 @@ html, body {
 
 #tweet_good {
     width: 440px;
+    height: 500px;
+    overflow: scroll;
 }
 
 #tweet_bad {

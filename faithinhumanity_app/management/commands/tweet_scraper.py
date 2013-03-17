@@ -15,11 +15,12 @@ ACCESS_TOKEN_SECRET = os.environ.get('TWITTER_FAITH_ACCESS_TOKEN_SECRET')
 query     = ['faith in humanity', 'faithinhumanity']
 positives = ['restore', 'restores', 'restored', 'restoring', 'gain', 'gains', 'gained', 'gaining', \
              'return', 'returns', 'returned', 'returning', 'reaffirm', 'reaffirms', 'reaffirmed', 'reaffirming', \
-             'give', 'gives', 'gave', 'giving', 'renew', 'renews', 'renewed', 'alive', 'back']
+             'give', 'gives', 'gave', 'giving', 'renew', 'renews', 'renewed', 'alive', 'back', 'rises', 'rising']
 negatives = ['lose', 'loses', 'lost', 'losing', 'loseing', 'destroy', 'destroys', 'destroyed', 'destroying', \
              'decrease', 'decreases', 'decreased', 'decreasing', 'dim', 'dimmer', 'dims', 'dimmed', 'dimming', \
              'loss', 'no', 'little', 'goodbye', 'negative', 'dead', 'plummet', 'plummeted', 'plummeting', \
-             'lower', 'lowers', 'lowering', 'lowered', 'no more']
+             'lower', 'lowers', 'lowering', 'lowered', 'no more', 'loose', 'loosing', 'gone', 'lessens', \
+             'lack', 'low']
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
@@ -36,7 +37,7 @@ class CustomStreamListener(tweepy.StreamListener):
         tweet.text = status.text
         tweet.username = status.user.name
         tweet.screenname = status.user.screen_name
-        tweet.profile_image_url = status.user.profile_image_url.replace('_normal', '')
+        tweet.profile_image_url = status.user.profile_image_url.replace('normal', 'bigger')
         tweet.is_retweet = True if hasattr(status, 'retweeted_status') else False
         return tweet
 
