@@ -8,40 +8,59 @@
 
 <div class="container">
 
-    <div class="row" id="labels">
-        <div class="span3" id="good">
-            <h1>50</h1>
+    <div class="row">
+        <div class="span3 count" id="label_good">
+            25
         </div>
 
-        <div class="span6" id="title">
-            <h1>THE FAITH IN HUMANITY</h1>
+        <div class="span6" id="label_title">
+            THE FAITH IN HUMANITY
         </div>
 
-        <div class="span3" id="bad">
-            <h1>50</h1>
+        <div class="span3 count" id="label_bad">
+            75
         </div>
     </div>
 
-    <div class="row">
+     <div class="row">
         <div class="span12" id="thermometer">
             <div id="good"></div>
             <div id="bad"></div>
-            <div id="cursor"></div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="span6">
+{#    <div class="row">
+        <div class="span6" id="tweet_good">
+            <div class="row tweet">
+                <div class="span1">
+                    <img src="https://si0.twimg.com/profile_images/3052758791/d80106e8c6caa05ce6b3992f90e19ae0_normal.jpeg" alt="">
+                </div>
+                <div class="span5">
+                    <div class="row">
+                        <div class="span5">
+                            Kevin Xu
+                            @imkevinxu
+                            3 hours ago
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span5">
+                            This must be what heaven looks like @ Shabu House
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             {% for tweet in good_tweets %}
                 {{ tweet.id_str }}
             {% endfor %}
         </div>
-        <div class="span6">
+        <div class="span6" id="tweet_bad">
             {% for tweet in bad_tweets %}
                 {{ tweet.id_str }}
             {% endfor %}
         </div>
-    </div>
+    </div> #}
 
 
 {#     <footer class="row">
