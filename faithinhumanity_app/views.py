@@ -16,8 +16,14 @@ from faithinhumanity_app.models import *
 from faithinhumanity_app.model_forms import *
 from faithinhumanity_app.forms import *
 
+import datetime
+
 def index(request):
-    tweets = Tweet.objects.all()
+    tweets = Tweet.objects.filter(created_at__range=[datetime.datetime.now()  + datetime.timedelta(days=-1), datetime.datetime.now()])
     good_tweets = tweets.filter(is_good=True)
     bad_tweets = tweets.filter(is_good=False)
+
+    good_score = round((float(len(good_tweets))/len(tweets)) * 100)
+    bad_score = 100 - good_score
+
     return render(request, "index.html", locals())

@@ -16,7 +16,7 @@ ACCESS_TOKEN_SECRET = os.environ.get('TWITTER_FAITH_ACCESS_TOKEN_SECRET')
 # TODO: find more positives and negatives
 query    = ['faith in humanity', 'faithinhumanity']
 positives = ['restore', 'restores', 'restored', 'restoring', 'gain', 'gains', 'gained', 'gaining', \
-             'return', 'returns', 'returned', 'returning', 'alive']
+             'return', 'returns', 'returned', 'returning', 'alive', 'back', 'gives', 'reaffirm']
 negatives = ['lose', 'loses', 'lost', 'losing', 'loseing', 'no', 'little', 'destroyed', 'destroys', 'destroying', 'goodbye']
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
