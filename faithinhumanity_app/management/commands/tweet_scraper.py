@@ -16,7 +16,7 @@ query     = ['faith in humanity', 'faithinhumanity']
 positives = ['restore', 'restores', 'restored', 'restoring', 'gain', 'gains', 'gained', 'gaining', \
              'return', 'returns', 'returned', 'returning', 'alive', 'back', 'gives', 'reaffirm']
 negatives = ['lose', 'loses', 'lost', 'losing', 'loseing', 'destroy', 'destroys', 'destroyed', 'destroying', \
-             'no', 'little', 'goodbye']
+             'decrease', 'decreases', 'decreased', 'decreasing', 'loss', 'no', 'little', 'goodbye']
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
@@ -33,7 +33,7 @@ class CustomStreamListener(tweepy.StreamListener):
         tweet.text = status.text
         tweet.username = status.user.name
         tweet.screenname = status.user.screen_name
-        tweet.profile_image_url = status.user.profile_image_url
+        tweet.profile_image_url = status.user.profile_image_url.replace('_normal', '')
         return tweet
 
     def on_status(self, status):

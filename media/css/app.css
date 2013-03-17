@@ -19,6 +19,8 @@
 
 @import url("http://fonts.googleapis.com/css?family=Spirax|Risque");
 
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
 html, body {
     width: 100%;
     margin: 0px;
@@ -29,6 +31,8 @@ html, body {
     margin-top: 30px;
 }
 
+
+
 /* -----------------------------------------
    THERMOMETER STYLES
 ----------------------------------------- */
@@ -38,6 +42,7 @@ html, body {
     font-weight: 300;
     font-size: 74px;
     line-height: 1;
+    color: #2C3E50;
 }
 
 #label_good {
@@ -70,12 +75,13 @@ html, body {
     height: 20px;
     width: 470px;
     background-color: #3498DB;
-    -webkit-border-top-left-radius: 10px;
-    -webkit-border-bottom-left-radius: 10px;
-    -moz-border-radius-topleft: 10px;
-    -moz-border-radius-bottomleft: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    -webkit-border-radius: 10px 0 0 10px;
+    -moz-border-radius: 10px 0 0 10px;
+    border-radius: 10px 0 0 10px;
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
 }
 
 #thermometer #bad {
@@ -84,12 +90,13 @@ html, body {
     height: 20px;
     width: 470px;
     background-color: #E74C3C;
-    -webkit-border-top-right-radius: 10px;
-    -webkit-border-bottom-right-radius: 10px;
-    -moz-border-radius-topright: 10px;
-    -moz-border-radius-bottomright: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    -webkit-border-radius: 0 10px 10px 0;
+    -moz-border-radius: 0 10px 10px 0;
+    border-radius: 0 10px 10px 0;
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
 }
 
 /* Not sure about use of cursor */
@@ -107,10 +114,70 @@ html, body {
    TWEET STYLES
 ----------------------------------------- */
 
-#tweet_good {
-    text-align: left;
+#tweet_good .tweet_link:hover .image {
+    border: 1px solid #3498DB;
+    box-shadow: 0 0 10px #3498DB;
 }
 
-#tweet_bad {
-    text-align: right;
+#tweet_bad .tweet_link:hover .image {
+    border: 1px solid #E74C3C;
+    box-shadow: 0 0 10px #E74C3C;
+}
+
+.tweet_link {
+    color: inherit;
+}
+
+.tweet_link:hover .tweet .text {
+    color: #7F8C8D;
+}
+
+.tweet {
+    font-size: 17px;
+    margin-bottom: 25px;
+    color: #2C3E50;
+}
+
+.tweet:before {
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    margin-bottom: 25px;
+    background-color: #ECF0F1;
+    position: relative;
+}
+
+.tweet_link:first-child .tweet:before {
+    display: none;
+}
+
+.tweet .image {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+
+.tweet .details .row {
+    margin-left: 0px;
+}
+
+.tweet .details .username {
+    font-weight: bold;
+}
+
+.tweet .details .screenname {
+    color: #2980B9;
+    margin-left: 4px;
+}
+
+.tweet .details .timeago {
+    float: right;
+    color: #95A5A6;
+}
+
+.tweet .details .text {
+    margin-top: 2px;
 }

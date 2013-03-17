@@ -4,6 +4,7 @@
 
 {% block extra_head %}{% endblock %}
 
+{% load humanize %}
 {% block content %}
 
 <div class="container">
@@ -24,43 +25,56 @@
 
      <div class="row">
         <div class="span12" id="thermometer">
-            <div id="good"></div>
-            <div id="bad"></div>
+            <div id="good" data-percentage="{{ good_score }}"></div>
+            <div id="bad" data-percentage="{{ bad_score }}"></div>
         </div>
     </div>
 
-{#    <div class="row">
+   <div class="row">
         <div class="span6" id="tweet_good">
-            <div class="row tweet">
-                <div class="span1">
-                    <img src="https://si0.twimg.com/profile_images/3052758791/d80106e8c6caa05ce6b3992f90e19ae0_normal.jpeg" alt="">
-                </div>
-                <div class="span5">
-                    <div class="row">
-                        <div class="span5">
-                            Kevin Xu
-                            @imkevinxu
-                            3 hours ago
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="span5">
-                            This must be what heaven looks like @ Shabu House
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             {% for tweet in good_tweets %}
-                {{ tweet.id_str }}
+                <a href="http://twitter.com/tweet/status/{{ tweet.id_str }}" target="_blank" class="tweet_link">
+                    <div class="row tweet">
+                        <div class="span1 image">
+                            <img src="{{ tweet.profile_image_url }}">
+                        </div>
+                        <div class="span5 details">
+                            <div class="row">
+                                <span class="username">{{ tweet.username }}</span>
+                                <span class="screenname">@{{ tweet.screenname }}</span>
+                                <span class="timeago">{{ tweet.created_at|naturaltime|replace("second", "sec")|replace("minute", "min") }}</span>
+                            </div>
+                            <div class="row text">
+                                {{ tweet.text }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
             {% endfor %}
         </div>
+
         <div class="span6" id="tweet_bad">
             {% for tweet in bad_tweets %}
-                {{ tweet.id_str }}
+                <a href="http://twitter.com/tweet/status/{{ tweet.id_str }}" target="_blank" class="tweet_link">
+                    <div class="row tweet">
+                        <div class="span1 image">
+                            <img src="{{ tweet.profile_image_url }}">
+                        </div>
+                        <div class="span5 details">
+                            <div class="row">
+                                <span class="username">{{ tweet.username }}</span>
+                                <span class="screenname">@{{ tweet.screenname }}</span>
+                                <span class="timeago">{{ tweet.created_at|naturaltime|replace("second", "sec")|replace("minute", "min") }}</span>
+                            </div>
+                            <div class="row text">
+                                {{ tweet.text }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
             {% endfor %}
         </div>
-    </div> #}
+    </div>
 
 
 {#     <footer class="row">
