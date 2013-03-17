@@ -114,14 +114,18 @@ html, body {
    TWEET STYLES
 ----------------------------------------- */
 
-#tweet_good .tweet_link:hover .image {
-    border: 1px solid #3498DB;
-    box-shadow: 0 0 10px #3498DB;
+#tweet_good, #tweet_bad, .image, .details .row {
+    float: left;
+    margin-left: 20px;
 }
 
-#tweet_bad .tweet_link:hover .image {
-    border: 1px solid #E74C3C;
-    box-shadow: 0 0 10px #E74C3C;
+#tweet_good {
+    width: 440px;
+}
+
+#tweet_bad {
+    width: 440px;
+    margin-left: 60px;
 }
 
 .tweet_link {
@@ -132,9 +136,24 @@ html, body {
     color: #7F8C8D;
 }
 
+.tweet_link:hover .tweet .username {
+    text-decoration: underline;
+}
+
+#tweet_good .tweet_link:hover .image {
+    border: 1px solid #3498DB;
+    box-shadow: 0 0 10px #3498DB;
+}
+
+#tweet_bad .tweet_link:hover .image {
+    border: 1px solid #E74C3C;
+    box-shadow: 0 0 10px #E74C3C;
+}
+
 .tweet {
     font-size: 17px;
-    margin-bottom: 25px;
+    line-height: 25px;
+    margin-bottom: 30px;
     color: #2C3E50;
 }
 
@@ -142,7 +161,7 @@ html, body {
     left: 10%;
     width: 80%;
     height: 2px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     background-color: #ECF0F1;
     position: relative;
 }
@@ -161,7 +180,7 @@ html, body {
 }
 
 .tweet .details .row {
-    margin-left: 0px;
+    width: 360px;
 }
 
 .tweet .details .username {

@@ -16,7 +16,8 @@ query     = ['faith in humanity', 'faithinhumanity']
 positives = ['restore', 'restores', 'restored', 'restoring', 'gain', 'gains', 'gained', 'gaining', \
              'return', 'returns', 'returned', 'returning', 'alive', 'back', 'gives', 'reaffirm']
 negatives = ['lose', 'loses', 'lost', 'losing', 'loseing', 'destroy', 'destroys', 'destroyed', 'destroying', \
-             'decrease', 'decreases', 'decreased', 'decreasing', 'loss', 'no', 'little', 'goodbye']
+             'decrease', 'decreases', 'decreased', 'decreasing', 'dim', 'dimmer', 'dims', 'dimmed', 'dimming', \
+             'loss', 'no', 'little', 'goodbye', 'negative' ]
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
@@ -34,26 +35,28 @@ class CustomStreamListener(tweepy.StreamListener):
         tweet.username = status.user.name
         tweet.screenname = status.user.screen_name
         tweet.profile_image_url = status.user.profile_image_url.replace('_normal', '')
+        tweet.is_retweet = True if hasattr(status, 'retweeted_status') else False
         return tweet
 
     def on_status(self, status):
-        try:
-            tweet = self.tweet_from_status(status)
+        if any(q in status.text.lower() for q in query):
+            try:
+                tweet = self.tweet_from_status(status)
 
-            if any(word in status.text.lower() for word in positives):
-                tweet.is_good = True
-                tweet.save()
-                print '[Saved] %s' % tweet
-            elif any(word in status.text.lower() for word in negatives):
-                tweet.is_good = False
-                tweet.save()
-                print '[Saved] %s' % tweet
-            else:
-                print '[NOT SAVED] %s' % tweet
+                if any(word in status.text.lower() for word in positives):
+                    tweet.is_good = True
+                    tweet.save()
+                    print '[Saved] %s' % tweet
+                elif any(word in status.text.lower() for word in negatives):
+                    tweet.is_good = False
+                    tweet.save()
+                    print '[Saved] %s' % tweet
+                else:
+                    print '[NOT SAVED] %s' % tweet
 
-        except Exception, e:
-            print >> sys.stderr, 'Encountered Exception: ', e
-            pass
+            except Exception, e:
+                print >> sys.stderr, 'Encountered Exception: ', e
+                pass
 
     def on_error(self, status_code):
         print >> sys.stderr, 'Encountered error with status code: ', status_code

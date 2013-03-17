@@ -31,14 +31,14 @@
     </div>
 
    <div class="row">
-        <div class="span6" id="tweet_good">
-            {% for tweet in good_tweets %}
+        <div id="tweet_good">
+            {% for tweet in good_tweets_without_retweets %}
                 <a href="http://twitter.com/tweet/status/{{ tweet.id_str }}" target="_blank" class="tweet_link">
                     <div class="row tweet">
-                        <div class="span1 image">
+                        <div class="image">
                             <img src="{{ tweet.profile_image_url }}">
                         </div>
-                        <div class="span5 details">
+                        <div class="details">
                             <div class="row">
                                 <span class="username">{{ tweet.username }}</span>
                                 <span class="screenname">@{{ tweet.screenname }}</span>
@@ -53,14 +53,14 @@
             {% endfor %}
         </div>
 
-        <div class="span6" id="tweet_bad">
-            {% for tweet in bad_tweets %}
+        <div id="tweet_bad">
+            {% for tweet in bad_tweets_without_retweets %}
                 <a href="http://twitter.com/tweet/status/{{ tweet.id_str }}" target="_blank" class="tweet_link">
                     <div class="row tweet">
-                        <div class="span1 image">
+                        <div class="image">
                             <img src="{{ tweet.profile_image_url }}">
                         </div>
-                        <div class="span5 details">
+                        <div class="details">
                             <div class="row">
                                 <span class="username">{{ tweet.username }}</span>
                                 <span class="screenname">@{{ tweet.screenname }}</span>

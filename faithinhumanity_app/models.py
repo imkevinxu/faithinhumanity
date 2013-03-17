@@ -16,6 +16,7 @@ class Base(models.Model):
 class Tweet(Base):
     id_str            = models.CharField(unique=True, max_length=255)
     is_good           = models.NullBooleanField(blank=True, null=True)
+    is_retweet        = models.BooleanField()
     text              = models.CharField(max_length=255)
     username          = models.CharField(max_length=255)
     screenname        = models.CharField(max_length=255)
