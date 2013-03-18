@@ -136,10 +136,6 @@ html, body {
     color: #BDC3C7;
 }
 
-.tweet_link:hover .tweet .username {
-    text-decoration: underline;
-}
-
 #tweet_good .tweet_link:hover .image {
     border: 1px solid #3498DB;
     box-shadow: 0 0 10px #3498DB;
