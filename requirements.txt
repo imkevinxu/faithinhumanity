@@ -1,8 +1,13 @@
 Coffin==0.3.7
 Django==1.4
 Jinja2==2.6
+SQLAlchemy==0.8.0
 South==0.7.5
+dj-database-url==0.2.1
 django-debug-toolbar==0.9.4
+django-postgrespool==0.2.4
+gunicorn==0.17.2
+psycopg2==2.4.6
 py-bcrypt==0.2
 tweepy==2.0
 wsgiref==0.1.2

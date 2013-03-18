@@ -203,3 +203,22 @@ if 'PRODUCTION' not in os.environ:
             INSTALLED_APPS += LOCAL_INSTALLED_APPS
         except NameError:
             pass
+
+####
+# Heroku Production Server
+# import heroku database settings overriding the defaults
+# https://devcenter.heroku.com/articles/django#database-settings
+####
+else:
+    try:
+        import dj_database_url
+        DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+        DATABASES['default']['ENGINE'] = 'django_postgrespool'
+
+    except ImportError:
+        import sys
+        sys.stderr.write( 'heroku failed to setup database settings\n' )
+
+    SOUTH_DATABASE_ADAPTERS = {
+        'default': 'south.db.postgresql_psycopg2'
+    }
