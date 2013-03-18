@@ -28,6 +28,19 @@ def reference_seconds(date, reference_date):
 def score(tweet, reference_date):
     return 1/(1+exp(-(reference_seconds(tweet.created_at, reference_date)-43200)/10000))
 
+def test():
+    current_time = timezone.now()
+    one_day_ago = current_time + datetime.timedelta(days=-1)
+
+    tweets = Tweet.objects.filter(created_at__range=[one_day_ago, current_time]).order_by('-created_at')
+    good_tweets = tweets.filter(is_good=True)
+    bad_tweets = tweets.filter(is_good=False)
+    good_tweets_without_retweets = good_tweets.filter(is_retweet=False)
+    bad_tweets_without_retweets = bad_tweets.filter(is_retweet=False)
+
+    print map(score, good_tweets, [one_day_ago]*len(good_tweets))
+    print map(score, bad_tweets, [one_day_ago]*len(bad_tweets))
+
 def index(request):
     current_time = timezone.now()
     one_day_ago = current_time + datetime.timedelta(days=-1)
