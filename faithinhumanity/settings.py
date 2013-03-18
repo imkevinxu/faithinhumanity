@@ -151,6 +151,7 @@ INSTALLED_APPS = (
     'south',
     'coffin',
     'debug_toolbar',
+    'faithinhumanity_app',
 
 )
 
