@@ -20,7 +20,7 @@ negatives = ['lose', 'loses', 'lost', 'losing', 'loseing', 'destroy', 'destroys'
              'decrease', 'decreases', 'decreased', 'decreasing', 'dim', 'dimmer', 'dims', 'dimmed', 'dimming', \
              'loss', 'no', 'little', 'goodbye', 'negative', 'dead', 'plummet', 'plummeted', 'plummeting', \
              'lower', 'lowers', 'lowering', 'lowered', 'no more', 'loose', 'loosing', 'gone', 'lessens', \
-             'lack', 'low']
+             'lack', 'low', 'crush', 'crushes', 'crushing', 'crushed', 'dwindling']
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)

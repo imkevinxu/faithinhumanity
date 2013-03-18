@@ -26,7 +26,7 @@ def reference_seconds(date, reference_date):
     return td.days * 86400 + td.seconds + (float(td.microseconds) / 1000000)
 
 def score(tweet, reference_date):
-    return 1/(1+exp(-(reference_seconds(tweet.created_at, reference_date)-43200)/10000))
+    return 1/(1+exp(-(reference_seconds(tweet.created_at, reference_date)-72000)/3000))
 
 def test():
     current_time = timezone.now()
