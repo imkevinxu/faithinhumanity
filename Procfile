@@ -1,1 +1,1 @@
-web: gunicorn faithinhumanity.wsgi
+web: python manage.py collectstatic --noinput; gunicorn faithinhumanity.wsgi
