@@ -15,7 +15,33 @@
         </div>
 
         <div class="span6" id="label_title">
-            THE FAITH IN HUMANITY
+            <div class="row">
+                <div class="span6">
+                    THE FAITH IN HUMANITY
+                </div>
+            </div>
+            <div class="row">
+                <div class="span6" id="share">
+
+                    <!-- Facebook Like Button -->
+                    <div class="fb-like" data-href="http://thefaithinhumanity.com/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+
+                    <!-- Twitter Tweet Button -->
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-text="{{ good_score }}% of the world believe in the future of mankind while {{ bad_score }}% think we're doomed. What do you think?" data-url="http://thefaithinhumanity.com/">Tweet</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+                    <!-- Google+ Button -->
+                    <div class="g-plusone" data-size="medium"></div>
+                    <script type="text/javascript">
+                      (function() {
+                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                        po.src = 'https://apis.google.com/js/plusone.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                      })();
+                    </script>
+
+                </div>
+            </div>
         </div>
 
         <div class="span3 count" id="label_bad">
@@ -113,15 +139,18 @@
             {% endfor %}
         </div>
     </div>
-
-
-{#     <footer class="row">
-        <div class="span12">
-            &copy; The Faith In Humanity
-        </div>
-    </footer> #}
 </div>
 
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <h1>&copy; The Faith In Humanity by <a href="http://twitter.com/imkevinxu" target="_blank">Kevin Xu</a> and <a href="http://joshbelanich.com" target="_blank">Josh Belanich</a></h1>
+                <h3>View the code on <a href="https://github.com/imkevinxu/faithinhumanity" target="_blank">GitHub</a> or tweet your faith with <a href="http://twitter.com/intent/tweet?url={{ "http://thefaithinhumanity.com"|urlencode }}&text={% if good_score >= bad_score %}{{ "I love the whole world, it's such a brilliant place and "+good_score|string+"% of the world has #faithinhumanity :)"|urlencode }}{% else %}{{ "Some people just want to watch the world burn, "+bad_score|string+"% of the world has no #faithinhumanity :("|urlencode }}{% endif %}" target="_blank">#faithinhumanity</a></h3>
+            </div>
+        </div>
+    </div>
+</footer>
 {% endblock %}
 
 {% block javascript %}{% endblock %}
