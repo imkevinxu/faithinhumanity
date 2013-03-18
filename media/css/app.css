@@ -121,8 +121,6 @@ html, body {
 
 #tweet_good {
     width: 440px;
-    height: 500px;
-    overflow: scroll;
 }
 
 #tweet_bad {
@@ -135,7 +133,7 @@ html, body {
 }
 
 .tweet_link:hover .tweet .text {
-    color: #7F8C8D;
+    color: #BDC3C7;
 }
 
 .tweet_link:hover .tweet .username {
@@ -190,8 +188,19 @@ html, body {
 }
 
 .tweet .details .screenname {
-    color: #2980B9;
     margin-left: 4px;
+}
+
+#tweet_good .screenname, #tweet_good .faith {
+    color: #2980B9;
+}
+
+#tweet_bad .screenname, #tweet_bad .faith {
+    color: #C0392B;
+}
+
+#tweet_good .faith, #tweet_bad .faith {
+    font-weight: bold;
 }
 
 .tweet .details .timeago {
@@ -201,4 +210,9 @@ html, body {
 
 .tweet .details .text {
     margin-top: 2px;
+    color: #7F8C8D;
+}
+
+.tweet_hidden {
+    display: none;
 }
