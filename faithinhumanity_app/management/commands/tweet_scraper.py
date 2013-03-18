@@ -15,13 +15,12 @@ ACCESS_TOKEN_SECRET = os.environ.get('TWITTER_FAITH_ACCESS_TOKEN_SECRET')
 query     = ['faith in humanity', 'faithinhumanity']
 positives = ['restore', 'restores', 'restored', 'restoring', 'gain', 'gains', 'gained', 'gaining', \
              'return', 'returns', 'returned', 'returning', 'reaffirm', 'reaffirms', 'reaffirmed', 'reaffirming', \
-             'give', 'gives', 'gave', 'giving', 'renew', 'renews', 'renewed', 'alive', 'back', 'rises', 'rising', \
-             'I love the whole world']
+             'give', 'gives', 'gave', 'giving', 'renew', 'renews', 'renewed', 'alive', 'back', 'rises', 'rising']
 negatives = ['lose', 'loses', 'lost', 'losing', 'loseing', 'destroy', 'destroys', 'destroyed', 'destroying', \
              'decrease', 'decreases', 'decreased', 'decreasing', 'dim', 'dimmer', 'dims', 'dimmed', 'dimming', \
              'loss', 'no', 'little', 'goodbye', 'negative', 'dead', 'plummet', 'plummeted', 'plummeting', \
              'lower', 'lowers', 'lowering', 'lowered', 'no more', 'loose', 'loosing', 'gone', 'lessens', \
-             'lack', 'low', 'crush', 'crushes', 'crushing', 'crushed', 'dwindling', 'dwindled', 'watch the world burn']
+             'lack', 'low', 'crush', 'crushes', 'crushing', 'crushed', 'dwindling', 'dwindled']
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)

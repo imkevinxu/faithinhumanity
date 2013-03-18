@@ -39,7 +39,7 @@ For best results, make sure you have at least:
 
 ### Local Environment Variables
 
-App uses a local .env not stored in the git repo to get some environment variables. Email Kevin Xu <kevin@imkevinxu.com> to get it
+App uses a local .env not stored in the git repo to get some environment variables for tweet_scraper. Email Kevin Xu <kevin@imkevinxu.com> to get it
 
 ### Workflow
 

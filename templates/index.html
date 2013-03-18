@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}{{ super() }}{% endblock %}
-{% block meta_description %}{% endblock %}
+{% block meta_description %}Gauge the world's current faith in humanity based on peoples' tweets. Right now, {{ good_score }}% of the world believe in the future of mankind while {{ bad_score }}% think we're doomed. What do you think?{% endblock %}
 
 {% block extra_head %}{% endblock %}
 
@@ -13,11 +13,12 @@
         <h3 id="aboutModalLabel">About Us</h3>
     </div>
     <div class="modal-body">
-        <p>The Faith in Humanity was an idea two best friends had back in 2008. Before we knew anything about the web, entreprenership, or even life, we had many many ideas about things we wanted to create. The Faith in Humanity was one of them &mdash; it was going to be a site to gauge the world's faith in humanity.</p>
+        <p>The Faith In Humanity was an idea two best friends had back in 2008. Before we knew anything about the web, entreprenership, or even life, we had many many ideas about things we wanted to create. The Faith In Humanity was one of them &mdash; it was going to be a site to gauge the world's faith in humanity.</p>
 
         <p>Flash forward 5 years, we are now seniors in college ready to graduate and across 2000 miles we decided to jam out this old idea for a weekend project. Finally.</p>
 
         <p>We are <a href="http://twitter.com/imkevinxu" target="_blank">Kevin Xu</a> and <a href="http://joshbelanich.com" target="_blank">Josh Belanich</a>. Please scroll for both pictures.</p>
+
         <img src="{{ MEDIA_URL }}images/bestfriends.png" alt="">
     </div>
 </div>
