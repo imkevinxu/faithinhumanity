@@ -89,7 +89,7 @@
                                 <span class="timeago">{{ tweet.created_at|naturaltime|replace("second", "sec")|replace("minute", "min") }}</span>
                             </div>
                             <div class="row text">
-                                {{ tweet.text }}
+                                {{ tweet.text|safe }}
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                                 <span class="timeago">{{ tweet.created_at|naturaltime|replace("second", "sec")|replace("minute", "min") }}</span>
                             </div>
                             <div class="row text">
-                                {{ tweet.text }}
+                                {{ tweet.text|safe }}
                             </div>
                         </div>
                     </div>
@@ -130,7 +130,7 @@
                                 <span class="timeago">{{ tweet.created_at|naturaltime|replace("second", "sec")|replace("minute", "min") }}</span>
                             </div>
                             <div class="row text">
-                                {{ tweet.text }}
+                                {{ tweet.text|safe }}
                             </div>
                         </div>
                     </div>
@@ -149,7 +149,7 @@
                                 <span class="timeago">{{ tweet.created_at|naturaltime|replace("second", "sec")|replace("minute", "min") }}</span>
                             </div>
                             <div class="row text">
-                                {{ tweet.text }}
+                                {{ tweet.text|safe }}
                             </div>
                         </div>
                     </div>
