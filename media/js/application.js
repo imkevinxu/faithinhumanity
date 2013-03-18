@@ -32,21 +32,20 @@ $(document).ready(function() {
         }
     }, 900);
 
+    var timeout = 0;
     $('#tweet_good .tweet_hidden').each(function() {
         var tweet = $(this);
-        var timeout = Math.floor(Math.random()*4000) + 1000 * $(this).data('order');
-        if ($(this).data('order') == 1) {
-            timeout = 1200;
-        }
+        timeout += Math.floor((Math.random()*3000)+1000) * ($(this).data('order'));
         setTimeout(function() {
             $('#tweet_good').prepend(tweet);
             tweet.addClass('tweet_link').fadeIn().css("display","inline-block");
         }, timeout);
     });
 
+    var timeout = 0;
     $('#tweet_bad .tweet_hidden').each(function() {
         var tweet = $(this);
-        var timeout = Math.floor((Math.random()*5000)+1000) * ($(this).data('order')+1);
+        timeout += Math.floor((Math.random()*3000)+1000) * ($(this).data('order'));
         if ($(this).data('order') == 1) {
             timeout = 2500;
         }
