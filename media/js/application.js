@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $.each($('.count'), function() {
+    $('.count').each(function() {
         $(this).countTo({
             interval:    20,
             startNumber: 0,
@@ -31,6 +31,35 @@ $(document).ready(function() {
             });
         }
     }, 900);
+
+    $('#tweet_good .tweet_hidden').each(function() {
+        var tweet = $(this);
+        var timeout = Math.floor((Math.random()*5000)+1000) * $(this).data('order');
+        if ($(this).data('order') == 1) {
+            timeout = 1200;
+        }
+        setTimeout(function() {
+            $('#tweet_good').prepend(tweet);
+            tweet.addClass('tweet_link').fadeIn().css("display","inline-block");
+        }, timeout);
+    });
+
+    $('#tweet_bad .tweet_hidden').each(function() {
+        var tweet = $(this);
+        var timeout = Math.floor((Math.random()*5000)+1000) * ($(this).data('order')+1);
+        if ($(this).data('order') == 1) {
+            timeout = 2500;
+        }
+        setTimeout(function() {
+            $('#tweet_bad').prepend(tweet);
+            tweet.addClass('tweet_link').fadeIn().css("display","inline-block");
+        }, timeout);
+    });
+
+    $('.tweet .details .text').each(function() {
+        $(this).html($(this).html().replace(/faithinhumanity/gi, '<span class="faith">$&</span>'));
+        $(this).html($(this).html().replace(/faith in humanity/gi, '<span class="faith">$&</span>'));
+    })
 
 });
 

@@ -32,8 +32,27 @@
 
    <div class="row">
         <div id="tweet_good">
-            {% for tweet in good_tweets_without_retweets %}
+            {% for tweet in good_tweets_without_retweets[10:] %}
                 <a href="http://twitter.com/tweet/status/{{ tweet.id_str }}" target="_blank" class="tweet_link">
+                    <div class="row tweet">
+                        <div class="image">
+                            <img src="{{ tweet.profile_image_url }}">
+                        </div>
+                        <div class="details">
+                            <div class="row">
+                                <span class="username">{{ tweet.username }}</span>
+                                <span class="screenname">@{{ tweet.screenname }}</span>
+                                <span class="timeago">{{ tweet.created_at|naturaltime|replace("second", "sec")|replace("minute", "min") }}</span>
+                            </div>
+                            <div class="row text">
+                                {{ tweet.text }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+            {% for tweet in good_tweets_without_retweets[:10]|reverse %}
+                <a href="http://twitter.com/tweet/status/{{ tweet.id_str }}" target="_blank" class="tweet_hidden" data-order="{{ loop.index }}">
                     <div class="row tweet">
                         <div class="image">
                             <img src="{{ tweet.profile_image_url }}">
@@ -54,8 +73,27 @@
         </div>
 
         <div id="tweet_bad">
-            {% for tweet in bad_tweets_without_retweets %}
+            {% for tweet in bad_tweets_without_retweets[5:] %}
                 <a href="http://twitter.com/tweet/status/{{ tweet.id_str }}" target="_blank" class="tweet_link">
+                    <div class="row tweet">
+                        <div class="image">
+                            <img src="{{ tweet.profile_image_url }}">
+                        </div>
+                        <div class="details">
+                            <div class="row">
+                                <span class="username">{{ tweet.username }}</span>
+                                <span class="screenname">@{{ tweet.screenname }}</span>
+                                <span class="timeago">{{ tweet.created_at|naturaltime|replace("second", "sec")|replace("minute", "min") }}</span>
+                            </div>
+                            <div class="row text">
+                                {{ tweet.text }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+            {% for tweet in bad_tweets_without_retweets[:10]|reverse %}
+                <a href="http://twitter.com/tweet/status/{{ tweet.id_str }}" target="_blank" class="tweet_hidden" data-order="{{ loop.index }}">
                     <div class="row tweet">
                         <div class="image">
                             <img src="{{ tweet.profile_image_url }}">
