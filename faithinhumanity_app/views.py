@@ -18,6 +18,15 @@ from faithinhumanity_app.model_forms import *
 from faithinhumanity_app.forms import *
 
 import datetime
+from math import log,pow,exp
+
+def reference_seconds(date, reference_date):
+    """Returns the number of seconds from the reference date.  Credit goes to http://amix.dk/blog/post/19588"""
+    td = date - reference_date
+    return td.days * 86400 + td.seconds + (float(td.microseconds) / 1000000)
+
+def score(tweet, reference_date):
+    return 1/(1+exp(-(reference_seconds(tweet.created_at, reference_date)-43200)/10000))
 
 def index(request):
     current_time = timezone.now()
@@ -29,7 +38,10 @@ def index(request):
     good_tweets_without_retweets = good_tweets.filter(is_retweet=False)
     bad_tweets_without_retweets = bad_tweets.filter(is_retweet=False)
 
-    good_score = int((float(len(good_tweets)) / len(tweets) if len(tweets) > 0 else 1) * 100)
+    good_score_acc = sum(map(score, good_tweets, [one_day_ago]*len(good_tweets)))
+    bad_score_acc = sum(map(score, bad_tweets, [one_day_ago]*len(bad_tweets)))
+
+    good_score = int((good_score_acc/(good_score_acc + bad_score_acc)) * 100)
     bad_score = 100 - good_score
 
     return render(request, "index.html", locals())
