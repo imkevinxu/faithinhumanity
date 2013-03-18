@@ -41,7 +41,7 @@ def index(request):
     good_score_acc = sum(map(score, good_tweets, [one_day_ago]*len(good_tweets)))
     bad_score_acc = sum(map(score, bad_tweets, [one_day_ago]*len(bad_tweets)))
 
-    good_score = int((good_score_acc/(good_score_acc + bad_score_acc)) * 100)
+    good_score = int((good_score_acc/(good_score_acc + bad_score_acc + 1)) * 100)
     bad_score = 100 - good_score
 
     return render(request, "index.html", locals())
