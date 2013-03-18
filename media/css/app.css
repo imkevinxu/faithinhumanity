@@ -206,11 +206,13 @@ html, body {
 .tweet .details .timeago {
     float: right;
     color: #95A5A6;
+    font-weight: 300;
 }
 
 .tweet .details .text {
     margin-top: 2px;
-    color: #7F8C8D;
+    color: #444;
+    font-weight: 300;
 }
 
 .tweet_hidden {
