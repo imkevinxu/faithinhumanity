@@ -34,7 +34,7 @@ $(document).ready(function() {
 
     $('#tweet_good .tweet_hidden').each(function() {
         var tweet = $(this);
-        var timeout = Math.floor((Math.random()*5000)+1000) * $(this).data('order');
+        var timeout = Math.floor(Math.random()*4000) + 1000 * $(this).data('order');
         if ($(this).data('order') == 1) {
             timeout = 1200;
         }
