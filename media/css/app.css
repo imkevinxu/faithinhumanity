@@ -41,6 +41,38 @@ footer h1 {
 }
 
 /* -----------------------------------------
+   ABOUT STYLES
+----------------------------------------- */
+
+#about {
+    position: absolute;
+    right: 5px;
+    top: -10px;
+    width: 36px;
+    height: 36px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    border-radius: 18px;
+    background-color: #2C3E50;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 27px;
+    vertical-align: center;
+}
+
+#about:hover {
+    background-color: #27AE60;
+}
+
+#aboutModal p {
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: 27px;
+}
+
+
+/* -----------------------------------------
    SHARE STYLES
 ----------------------------------------- */
 
@@ -67,6 +99,10 @@ footer h1 {
    THERMOMETER STYLES
 ----------------------------------------- */
 
+#labels {
+    position: relative;
+}
+
 #label_title {
     text-align: center;
     font-weight: 300;
@@ -80,7 +116,7 @@ footer h1 {
     font-family: 'Spirax', cursive;
     font-size: 120px;
     color: #2980B9;
-    padding-top: 32px;
+    padding-top: 56px;
     line-height: 1;
 }
 
@@ -89,7 +125,7 @@ footer h1 {
     font-family: 'Risque', cursive;
     font-size: 120px;
     color: #C0392B;
-    padding-top: 32px;
+    padding-top: 56px;
     line-height: 1;
 }
 

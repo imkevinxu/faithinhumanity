@@ -7,9 +7,24 @@
 {% load humanize %}
 {% block content %}
 
+<div id="aboutModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="aboutModalLabel">About Us</h3>
+    </div>
+    <div class="modal-body">
+        <p>The Faith in Humanity was an idea two best friends had back in 2008. Before we knew anything about the web, entreprenership, or even life, we had many many ideas about things we wanted to create. The Faith in Humanity was one of them &mdash; it was going to be a site to gauge the world's faith in humanity.</p>
+
+        <p>Flash forward 5 years, we are now seniors in college ready to graduate and across 2000 miles we decided to jam out this old idea for a weekend project. Finally.</p>
+
+        <p>We are <a href="http://twitter.com/imkevinxu" target="_blank">Kevin Xu</a> and <a href="http://joshbelanich.com" target="_blank">Josh Belanich</a>. Please scroll for both pictures.</p>
+        <img src="{{ MEDIA_URL }}images/bestfriends.png" alt="">
+    </div>
+</div>
+
 <div class="container">
 
-    <div class="row">
+    <div class="row" id="labels">
         <div class="span3 count" id="label_good">
             {{ good_score }}
         </div>
@@ -47,6 +62,8 @@
         <div class="span3 count" id="label_bad">
             {{ bad_score }}
         </div>
+
+        <a href="#aboutModal" id="about" role="button" data-toggle="modal">?</a>
     </div>
 
      <div class="row">
