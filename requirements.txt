@@ -7,6 +7,7 @@ dj-database-url==0.2.1
 django-debug-toolbar==0.9.4
 django-postgrespool==0.2.4
 gunicorn==0.17.2
+newrelic==1.10.2.38
 psycopg2==2.4.6
 py-bcrypt==0.2
 tweepy==2.0
