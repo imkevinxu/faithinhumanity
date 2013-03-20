@@ -35,20 +35,30 @@ For best results, make sure you have at least:
     python manage.py syncdb                                           # sets up django database
     python manage.py migrate faithinhumanity_app                      # migrates any south migrations
 
+### Running the Application
+
+Application will be running at [http://localhost:8000](http://localhost:8000) after running one of the two commands:
+
+    python manage.py runserver                              # Normal way
+
+    foreman start                                           # Advanced way
+                                                            # Sources environment variables and runs all processes
+                                                            # Packaged with Heroku Toolbelt https://toolbelt.heroku.com/
+
 ## Troubleshooting
 
 ### Local Environment Variables
 
-App uses a local .env not stored in the git repo to get some environment variables for tweet_scraper. Email Kevin Xu <kevin@imkevinxu.com> to get it
+App uses a local .env and .env.dev not updated in the git repo to get some environment variables. Email Kevin Xu <kevin@imkevinxu.com> to get it
 
 ### Workflow
 
 In case something's not working after pulling, try one of these:
 
     workon faithinhumanity                                            # makes sure you're in the right virtual environment
-    source .env                                                       # makes sure your local environment variables are setup
     pip install -r requirements.txt                                   # makes sure python packages are up to date
     python manage.py migrate faithinhumanity_app                      # makes sure database schema is migrated
+    source .env                                                       # makes sure your local environment variables are setup
 
 ### Missing Dependencies
 
