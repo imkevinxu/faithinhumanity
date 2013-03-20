@@ -30,7 +30,7 @@ class CustomStreamListener(tweepy.StreamListener):
 
     def __init__(self, api=None):
         self.api = api or tweepy.API()
-        print >> sys.stdout, 'Tweet Scraper Initializing'
+        print >> sys.stdout, '\n[Tweet Scraper] Initializing...'
 
     def tweet_from_status(self, status):
         tweet = Tweet()
