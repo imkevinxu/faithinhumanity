@@ -29,7 +29,7 @@ class CustomStreamListener(tweepy.StreamListener):
 
     def __init__(self, api=None):
         self.api = api or tweepy.API()
-        print 'Tweet Scraper Initializing'
+        print >> sys.stdout, 'Tweet Scraper Initializing'
 
     def tweet_from_status(self, status):
         tweet = Tweet()
@@ -49,13 +49,13 @@ class CustomStreamListener(tweepy.StreamListener):
                 if any(word in status.text.lower() for word in positives):
                     tweet.is_good = True
                     tweet.save()
-                    print '[Saved] %s' % tweet
+                    print >> sys.stdout, '[Saved] %s' % tweet
                 elif any(word in status.text.lower() for word in negatives):
                     tweet.is_good = False
                     tweet.save()
-                    print '[Saved] %s' % tweet
+                    print >> sys.stdout, '[Saved] %s' % tweet
                 else:
-                    print '[NOT SAVED] %s' % tweet
+                    print >> sys.stdout, '[NOT SAVED] %s' % tweet
 
             except Exception, e:
                 print >> sys.stderr, 'Encountered Exception: ', e

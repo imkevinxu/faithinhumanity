@@ -2,6 +2,5 @@
 *.swp
 *.pyc
 .DS_Store
-.env
 db.sql
 notes.txt
