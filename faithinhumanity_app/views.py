@@ -35,8 +35,8 @@ def index(request):
     tweets = Tweet.objects.order_by('-created_at')
     good_tweets = tweets.filter(is_good=True)[:300]
     bad_tweets = tweets.filter(is_good=False)[:300]
-    good_tweets_without_retweets = tweets.filter(is_good=True, is_retweet=False)[:25]
-    bad_tweets_without_retweets = tweets.filter(is_good=False, is_retweet=False)[:25]
+    good_tweets_without_retweets = tweets.filter(is_good=True, is_retweet=False)[:30]
+    bad_tweets_without_retweets = tweets.filter(is_good=False, is_retweet=False)[:30]
 
     good_score_acc = sum(map(score, good_tweets, [one_day_ago]*len(good_tweets)))
     bad_score_acc = sum(map(score, bad_tweets, [one_day_ago]*len(bad_tweets)))
