@@ -59,7 +59,7 @@ In case something's not working after pulling, try one of these:
     workon faithinhumanity                                            # makes sure you're in the right virtual environment
     pip install -r requirements.txt                                   # makes sure python packages are up to date
     python manage.py migrate faithinhumanity_app                      # makes sure database schema is migrated
-    source .env                                                       # makes sure your local environment variables are setup
+    source .env.dev                                                   # makes sure your local environment variables are setup
 
 ### Missing Dependencies
 
