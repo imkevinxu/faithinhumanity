@@ -1,5 +1,5 @@
-Faithinhumanity
-================
+[The Faith In Humanity](http://thefaithinhumanity.com/)
+=======================================================
 
 Auto-generated from [Kevin Xu](https://github.com/imkevinxu)'s [Django Project Builder](https://github.com/imkevinxu/django-projectbuilder)
 
