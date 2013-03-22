@@ -42,6 +42,7 @@ Application will be running at [http://localhost:8000](http://localhost:8000) af
     python manage.py runserver                              # Normal way
 
     foreman start                                           # Advanced way
+                                                            # Requires .env and .env.dev files (see below)
                                                             # Sources environment variables and runs all processes
                                                             # Packaged with Heroku Toolbelt https://toolbelt.heroku.com/
 
@@ -49,7 +50,7 @@ Application will be running at [http://localhost:8000](http://localhost:8000) af
 
 ### Local Environment Variables
 
-App uses a local .env and .env.dev not updated in the git repo to get some environment variables. Email Kevin Xu <kevin@imkevinxu.com> to get it
+App uses a local .env and .env.dev not updated in the git repo to get some environment variables. Email Kevin Xu <kevin@imkevinxu.com> to get the latest version
 
 ### Workflow
 
