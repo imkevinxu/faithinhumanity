@@ -8,7 +8,7 @@ class Command(BaseCommand):
         print >> sys.stdout, '\n[Clean DB] Initializing...'
         try:
             total_tweets = Tweet.objects.all()
-            if len(total_tweets) >= 9000:
+            if len(total_tweets) >= 8000:
                 objects_to_keep = Tweet.objects.all()[1000:]
                 Tweet.objects.exclude(pk__in=objects_to_keep).delete()
                 print >> sys.stdout, 'DB Successfully Cleaned'
