@@ -8,11 +8,12 @@ class Command(BaseCommand):
         print >> sys.stdout, '\n[Clean DB] Initializing...'
         try:
             total_tweets = Tweet.objects.all()
-            if len(total_tweets) >= 8000:
-                objects_to_keep = Tweet.objects.all()[1000:]
-                Tweet.objects.exclude(pk__in=objects_to_keep).delete()
-                print >> sys.stdout, 'DB Successfully Cleaned'
-                print >> sys.stdout, 'From %s rows -> %s rows' % (len(total_tweets), len(Tweet.objects.all()))
+            if len(total_tweets) >= 5000:
+                while len(Tweet.objects.all()) >= 5000:
+                    objects_to_keep = Tweet.objects.all()[1000:]
+                    Tweet.objects.exclude(pk__in=objects_to_keep).delete()
+                    print >> sys.stdout, 'DB Successfully Cleaned'
+                    print >> sys.stdout, 'From %s rows -> %s rows' % (len(total_tweets), len(Tweet.objects.all()))
             else:
                 print >> sys.stdout, 'DB Not Cleaned'
                 print >> sys.stdout, 'Currently has only %s rows' % len(total_tweets)
