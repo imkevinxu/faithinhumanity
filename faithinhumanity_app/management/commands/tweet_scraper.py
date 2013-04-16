@@ -12,10 +12,10 @@ ACCESS_TOKEN        = os.environ.get('TWITTER_FAITH_ACCESS_TOKEN')
 ACCESS_TOKEN_SECRET = os.environ.get('TWITTER_FAITH_ACCESS_TOKEN_SECRET')
 
 # Query terms
-query     = ['faith in humanity', 'faithinhumanity']
+query     = ['faith in humanity', 'faithinhumanity', '#faithinhumanity']
 positives = ['restore', 'restores', 'restored', 'restoring', 'gain', 'gains', 'gained', 'gaining', \
              'return', 'returns', 'returned', 'returning', 'reaffirm', 'reaffirms', 'reaffirmed', 'reaffirming', \
-             'give', 'gives', 'gave', 'giving', 'renew', 'renews', 'renewed', 'alive', 'back', 'rises', 'rising']
+             'renew', 'renews', 'renewed', 'alive', 'rises', 'rising']
 negatives = ['lose', 'loses', 'lost', 'losing', 'loseing', 'destroy', 'destroys', 'destroyed', 'destroying', \
              'decrease', 'decreases', 'decreased', 'decreasing', 'dim', 'dimmer', 'dims', 'dimmed', 'dimming', \
              'loss', 'no', 'goodbye', 'negative', 'dead', 'plummet', 'plummeted', 'plummeting', \
